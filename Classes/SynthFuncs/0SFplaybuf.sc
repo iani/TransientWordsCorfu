@@ -34,7 +34,18 @@ SF {
 			PanAz.ar (24, src, Lag.kr (pos, 2), vol, Lag.kr (width, 2));
 		}
 	}
- 
+
+	*playbuf22 {
+		^{ | buf = 0, rate = 1, trigger = 0, startPos = 0, loop = 0,
+			doneAction = 0, pos = 0, vol = 1, width = 2 |
+			var src;
+			src = PlayBuf.ar(1, buf, rate * BufRateScale.kr(buf),
+				trigger, startPos * BufSampleRate.kr (buf),
+				loop, doneAction
+			);
+			PanAz.ar (22, src, Lag.kr (pos, 2), vol, Lag.kr (width, 2));
+		}
+	}
 	*playbufdurpan {
 		^{ | buf = 0 from = 0 dur = 1 rate = 1 trigger = 1 pos = 0 vol = 1 |
 			var src;

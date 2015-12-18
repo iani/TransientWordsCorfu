@@ -158,19 +158,17 @@ SF.playbuf ++> \m1;
 } ++> \rm1
 
 //: *r1_2500cluster + LFNoise
-
 {| vol = 1 |
 	Resonz.ar (Inp.ar, LFNoise1.kr(5).range(2000, 2500)
 		* (1, 1.1 .. 3.1).scramble, 0.0005) * vol * 2 
 } ++> \rm1;
-
-
+//:
 // ================================================================
  
 //:
 
 \rm1 release: 10;
-\rm1.free;
+// \rm1.free;
 //: fade out to silence: Aerodromio follows
 \m1 release: 10;
 //:
