@@ -54,8 +54,8 @@ SF.playbuf22 ++> \aerodromio;
 { | vol = 1 | LPF.ar(Inp.ar, [400, 600]) * vol } ++> \veryfastlpf;
 {  | vol = 0.05 |
 	var a, p;
-	a=SinOsc;p=Pulse;GVerb.ar(WhiteNoise.ar*p.ar(TChoose.kr(a.kr(2),[5,8,20,30]))
-		* p.ar(16,0.1))+a.ar(97*p.ar(4),0,p.kr(5,add:1))
+	a=SinOsc;p=Pulse;GVerb.ar(WhiteNoise.ar*p.ar(TChoose.kr(a.kr(4),[5,8,20,30]))
+		* p.ar(16,0.1))+a.ar(97*p.ar(1),0,p.kr(0.5,add:1))
 	* vol;
 } ++> \veryfast;
 //:
@@ -64,19 +64,19 @@ SF.playbuf22 ++> \aerodromio;
 //:
 { LPF.ar(Inp.ar, {LFNoise0.kr([2, 3].choose).range(1000, 2000)} ! 22) * 0.2 } ++> \veryfastlpf;
 //:
-{ {LPF.ar(Inp.ar, LFNoise0.kr([2, 3].choose).range(1000, 2000))} ! 22 * 0.2 } ++> \veryfastlpf;
+{ {LPF.ar(Inp.ar, LFNoise0.kr([2, 3].choose).range(1000, 2000))} ! 22 * 0.5 } ++> \veryfastlpf;
 //:
 { HPF.ar(Inp.ar, {LFNoise0.kr([1, 2].choose).range(1000, 2000)} ! 22) * 0.2 } ++> \veryfastlpf;
 //:
 { {HPF.ar(Inp.ar, LFNoise0.kr([1, 2].choose).range(1000, 2000))} ! 22 * 0.2 } ++> \veryfastlpf;
 //:
-{ Resonz.ar(Inp.ar, {LFNoise0.kr([3, 2].choose).range(1800, 2000)} ! 22) * 0.2 } ++> \veryfastlpf;
+{ Resonz.ar(Inp.ar, {LFNoise0.kr([3, 2].choose).range(1800, 2000)} ! 22) * 0.5 } ++> \veryfastlpf;
 //:
 { {Resonz.ar(Inp.ar, LFNoise0.kr([3, 2].choose).range(1800, 2000))} ! 22 * 0.2 } ++> \veryfastlpf;
 //:
 { Resonz.ar(Inp.ar, {LFNoise1.kr([5, 5].choose).range(200, 10000)} ! 22) * 0.2 } ++> \veryfastlpf;
 //:
-{ Resonz.ar(Inp.ar, {LFNoise1.kr([5, 5].choose).range(200, 10000)} ! 22) * 0.2 } ++> \veryfastlpf;
+{ Resonz.ar(Inp.ar, {LFNoise1.kr([5, 5].choose).range(200, 10000)} ! 22) * 0.3 } ++> \veryfastlpf;
 
 ////////////////////////////////////////////////////////////////
 //:
@@ -97,14 +97,14 @@ SF.playbuf22 ++> \aerodromio;
 {
 	LPF.ar(Inp.ar,
 		{LFNoise0.kr([2, 3].choose).range(1000, 2000)} ! 22,
-		{LFNoise1.kr(1).range(0.0, 0.1) } ! 22
+		{LFNoise1.kr(1).range(0.0, 0.5) } ! 22
 	)
 } ++> \veryfastlpf;
 //:
 {
 	HPF.ar(Inp.ar,
-		{LFNoise0.kr([2, 3].choose).range(1000, 2000)} ! 22,
-		{LFNoise1.kr(1).range(0.0, 0.1) } ! 22
+		{LFNoise0.kr([2, 3].choose).range(100, 2000)} ! 22,
+		{LFNoise1.kr(1).range(0.0, 0.5 } ! 22
 	)
 } ++> \veryfastlpf;
 //:

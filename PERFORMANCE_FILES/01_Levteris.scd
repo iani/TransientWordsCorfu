@@ -35,8 +35,7 @@ base = nil.asTarget;
 			In.ar (21) // 22
 		]
 	)
-}.play (base)
-
+}.play (base);
 
 //:
 "(m1.rm1)(m2.rm2)".arlink;
@@ -57,9 +56,9 @@ SF.playbuf ++> \m1;
 //:
 5 +>.vol \m1;
 //:
-0.5 +>.width \rm1;
+1.0 +>.width \rm1;
 //:
-3 +>.fadeTime \rm1;
+0.3 +>.fadeTime \rm1;
 3 +>.fadeTime \rm2;
 3 +>.fadeTime \rm3;
 3 +>.fadeTime \pm1;		
@@ -92,7 +91,7 @@ SF.playbuf ++> \m1;
 //:
 
 {| vol = 1 |
-	Resonz.ar (Inp.ar, 300 * [1, 1.25, 1.3, 1,5, 1.8, 2, 2.5, 3, 3.5, 4, 4.5],
+	Resonz.ar (Inp.ar, 300 * [1, 1.25, 1.3, 1,5, 1.8, 2, 2.5, 3, 3.5, 4, 4.5].scramble,
 		0.0001)
 	* vol * 100
 } ++> \rm1;
@@ -159,7 +158,7 @@ SF.playbuf ++> \m1;
 
 //: *r1_2500cluster + LFNoise
 {| vol = 1 |
-	Resonz.ar (Inp.ar, LFNoise1.kr(5).range(2000, 2500)
+	Resonz.ar (Inp.ar, LFNoise2.kr(10).range(100, 500)
 		* (1, 1.1 .. 3.1).scramble, 0.0005) * vol * 2 
 } ++> \rm1;
 //:
@@ -171,5 +170,5 @@ SF.playbuf ++> \m1;
 // \rm1.free;
 //: fade out to silence: Aerodromio follows
 \m1 release: 10;
-//:
+q//:
 (1, 1.1 .. 3.1).size;
